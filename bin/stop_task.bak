@@ -1,0 +1,8 @@
+#!/bin/bash
+#remove task from crontab
+taskname=$1
+rm -r %(HOME)/config/run.cron.bak
+mv %(HOME)/config/run.cron run.cron.bak
+sed '/\/$(taskname)\//d' %(HOME)/config/run.cron.bak >%(HOME)/config/run.cron
+crontab %(HOME)/config/run.cron
+

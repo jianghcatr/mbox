@@ -1,0 +1,20 @@
+#!/bin/bash
+# create dir using date,filename using time
+# or filename using dest_host.but if there are too many dest,
+# every time rsync need to update every file. 
+ 
+task_name="pingtest"
+prob_name="P0001"
+time_str=`date +%Y/%m/%d-%H-%M-%S`
+dest_dir=${HOME}/data/${task_name}/${time_str:0:10}
+dest_fnm=${prob_name}${time_str:10:9}
+full_fnm=${dest_dir}/${dest_fnm}
+[ -d ${dest_dir} ] || mkdir -p ${dest_dir}
+
+while read dest_host; do
+   echo "mbox_start ping " ${dest_host} >>${full_fnm}
+   ping ${dest_host} -c 5 >>${full_fnm}
+   echo "mbox_stop ping " ${dest_host} >>${full_fnm}
+done < dest_host.lst
+
+

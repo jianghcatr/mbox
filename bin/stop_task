@@ -1,0 +1,7 @@
+#!/bin/bash
+# stop task from crontab
+# usage stop_task <taskname>
+
+taskname=`echo $1`
+crontab -l|sed "/\/${taskname}\//d"|crontab
+

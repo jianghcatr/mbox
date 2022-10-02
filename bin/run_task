@@ -1,0 +1,12 @@
+#!/bin/bash
+#run task, set task to crontab to schedule
+#1. create data directory data/taskname
+#2. set task.sh to crontab to schedule
+taskname=$1
+if mkdir -p ${HOME}/data/${taskname}
+then
+  cat ${HOME}/tasks/$(taskname)/$(taskname).cron >>/${HOME}/config/run.cron
+  crontab ${HOME}/config/run.cron
+
+
+ 

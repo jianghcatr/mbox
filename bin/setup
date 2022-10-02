@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while read PRG_NAME
+do
+
+ if  which $PRG_NAME>/dev/null 2>&1; then
+   echo "file $PRG_NAME is installed."
+ else
+   echo "program file $PRG_NAME does not exist,try to install..."
+   sudo yum -y install $PRG_NAME
+ fi
+
+done < install.conf

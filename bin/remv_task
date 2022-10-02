@@ -1,0 +1,3 @@
+#!/bin/bash
+#if task is running,stop task
+#delete task files,schedules data backup and removing

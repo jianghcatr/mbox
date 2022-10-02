@@ -1,0 +1,19 @@
+#!/bin/bash
+# this program is to deploy task to every host
+# first of all copy task directory to each host 
+# secondly, config and run tasks in each host
+# Usage: deploy <taskname> <host_list_file>
+
+while read host_addr
+do
+ #test host_addr connection
+ ssh ${host_addr} exit || continue
+ rsync -a ${HOME}/tasks/${1} ${host_addr}:${HOME}/tasks --logfile ${HOME}/log/deploy.log
+ # run remote init_task - shuffle the target address
+
+  # run remote task
+
+
+
+
+done <${2}

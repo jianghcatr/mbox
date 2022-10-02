@@ -1,0 +1,8 @@
+#!/bin/bash
+# download task from remote server
+# Usage: get_task <src_addr> <task_name>
+
+src_addr=${1}
+task_nm=${2}
+rsync -a ${src_addr}:${HOME}/tasks/${task_nm} ${HOME}/tasks --log-file ${HOME}/log/get_task.log 
+

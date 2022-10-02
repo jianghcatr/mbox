@@ -1,0 +1,14 @@
+#!/bin/bash
+#create task using task templates
+#if needed softwares is not installed,install them
+#create task dir, create task script using templates and task configure file
+#task configure file include: 
+#(1) task command, ping <target>, <target> could be a variable read
+#(2) <target> or <target_list> filename
+#(3) <prober-list> 
+#(4) avoid-flooding options,may include:minimize,random,round-robin
+#(5) crontab configuration for the task
+#(6) output format, usually located in data/taskname/yy/mm/dd/data_hh_mm_ss
+#    or data/taskname/yy/mm/data_dd(daily data)
+#(7) analysis scripts
+#usage make_task task_config_file

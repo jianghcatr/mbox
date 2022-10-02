@@ -1,0 +1,7 @@
+#!/bin/bash
+# upload data files to analysis servers
+# using rsync
+# this scripts could be costomized for each task in specific 
+# task directroy rather than in /bin. using run-parts to task dir by crontab  
+
+rsync -a ${HOME}/data/pingtest hostcell02:/home/collect/data --log-file ${HOME}/log/upload.log 
